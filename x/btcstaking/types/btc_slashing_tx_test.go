@@ -46,7 +46,7 @@ func FuzzSlashingTx_VerifySigAndASig(f *testing.F) {
 		// use a random fp SK/PK
 		fpIdx := int(datagen.RandomInt(r, numRestakedFPs))
 		fpSK, fpPK := fpSKs[fpIdx], fpPKs[fpIdx]
-		decKey, err := asig.NewDecyptionKeyFromBTCSK(fpSK)
+		decKey, err := asig.NewDecryptionKeyFromBTCSK(fpSK)
 		require.NoError(t, err)
 		encKey, err := asig.NewEncryptionKeyFromBTCPK(fpPK)
 		require.NoError(t, err)
@@ -144,7 +144,7 @@ func FuzzSlashingTxWithWitness(f *testing.F) {
 		fpSK, fpPK := fpSKs[fpIdx], fpPKs[fpIdx]
 		encKey, err := asig.NewEncryptionKeyFromBTCPK(fpPK)
 		require.NoError(t, err)
-		decKey, err := asig.NewDecyptionKeyFromBTCSK(fpSK)
+		decKey, err := asig.NewDecryptionKeyFromBTCSK(fpSK)
 		require.NoError(t, err)
 
 		delSK, _, err := datagen.GenRandomBTCKeyPair(r)

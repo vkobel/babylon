@@ -504,7 +504,7 @@ func FuzzSelectiveSlashing_StakingTx(f *testing.F) {
 		h.NoError(err)
 
 		// finality provider decrypts the covenant signature
-		decKey, err := asig.NewDecyptionKeyFromBTCSK(fpSK)
+		decKey, err := asig.NewDecryptionKeyFromBTCSK(fpSK)
 		h.NoError(err)
 		decryptedCovenantSig := bbn.NewBIP340SignatureFromBTCSig(covASig.Decrypt(decKey))
 
